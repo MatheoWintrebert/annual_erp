@@ -9,10 +9,14 @@ Objectif : concevoir un ERP pour gérer les entrées, le rangement, la visualisa
 Stack technique proposée :
 
 * Backend : NestJS (TypeScript) + Swagger
-* Frontend : React (Vite + TypeScript)
+* Frontend : React (Vite + TypeScript) + Material UI
 * DB : MySQL (Docker)
 
 ---
+
+### 1.1 Planning
+
+![Planning prévisionnel](planning.png)
 
 ## 2. UML
 
@@ -238,7 +242,7 @@ On souhaite créer un ERP pour gérer l'arrivée, le stockage, la surveillance (
 
 ### 3.7 Livrables
 
-* Repo monorepo (backend + frontend)
+* Multi repo ( frontend, backend)
 * README général et scripts Docker
 * Documentation API Swagger
 * Diagrammes UML et schéma DB
@@ -263,3 +267,29 @@ Exemple d'indexation :
 * index on `pallets(status)`
 * composite index on `pallet_contents(materialId, expiryDate)`
 
+## 5. Etat de l'art
+
+Les WMS modernes gèrent la putaway (rangement palette), le slotting algorithmique, contraintes physiques (hauteur/charge) et la traçabilité GS1/RFID ; ils peuvent être intégrés à un ERP ou déployés en SaaS.
+La tendance forte est le cloud/SaaS, la séparation WMS↔WES pour piloter automates (AS/RS, AMR) et l’usage d’IA/ML pour optimiser le slotting et prévoir le flux.
+Les risques projet : modélisation physique insuffisante (hauteurs/emplacements), customisations excessives et mauvaise roadmap WMS↔WES. Favoriser pilote sur une zone et configuration plutôt que heavy dev.
+
+### Concurrents pertinents:
+Blue Yonder / Manhattan (JDA / Manhattan Associates) — leaders WMS pour grands DC et 3PL. 
+
+SAP EWM (Embedded / Cloud) — pour intégration forte ERP → entrepôt. 
+
+Oracle Warehouse Management Cloud — WMS cloud orienté enterprise. 
+
+Körber (HighJump) — WMS adaptable, présence forte EMEA/SMB→entreprise. 
+
+Infor / Manhattan Associates (segment enterprise & retail). 
+
+Dematic — WMS + intégration forte AS/RS & automation. 
+
+Generix Group (France / Europe) — WMS SaaS & réseaux logistiques (fort en France). 
+
+Hardis (Reflex WMS) — acteur français pour entrepôts complexes / omnicanal. 
+
+Softeon / Tecsys — spécialistes WMS/mid-market avec capacités palettisation et distribution.
+
+![Graphique de données](graph.png)
